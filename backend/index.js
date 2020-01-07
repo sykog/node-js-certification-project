@@ -34,6 +34,8 @@ app.listen(portNum, () => {
   console.log("listening on port " + portNum);
 });
 
+const io = require('socket.io')(server);
+
 // Handle socket traffic
 io.sockets.on('connection', (socket) => {
   const users = [];
