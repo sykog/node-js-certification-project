@@ -20,11 +20,15 @@ mongoose.connect(config.dbUrl, {
 const app = express();
 const newsRoute = require('./data/routes/news.route');
 const weatherRoute = require('./data/routes/weather.route');
+const adminRoute = require('./data/routes/AdminLoginReg.route');
+
+//app.use(session({secret: 'edurekaSecert'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
+
 app.use('/', express.static(__dirname));
-app.use('/api', [newsRoute, weatherRoute]);
+app.use('/api', [newsRoute, weatherRoute,adminRoute]);
 
 app.listen(portNum, () => {
   console.log("listening on port " + portNum);

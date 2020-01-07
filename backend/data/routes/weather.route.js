@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const weatherRoute = express.Router();
+const axios = require('axios').default;
 
 // Add user
 weatherRoute.route('/get-weather').post((request, response, next) => {

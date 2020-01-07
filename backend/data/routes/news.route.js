@@ -12,7 +12,7 @@ newsRoute.route('/add-news').post((request, response, next) => {
 });
 
 // Get all newss
-newsRoute.route('/').get((request, response) => {
+newsRoute.route('/').get((request, response, next) => {
   News.find((error, data) => {
     if (error) return next(error);
     else response.json(data);
