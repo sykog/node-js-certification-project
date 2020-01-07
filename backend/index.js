@@ -34,6 +34,29 @@ app.listen(portNum, () => {
   console.log("listening on port " + portNum);
 });
 
+// Handle socket traffic
+io.sockets.on('connection', (socket) => {
+  const users = [];
+  const socketIds = Object.keys(io.sockets.sockets);
+
+  console.log("New user connected");
+  socket.username = "Anonymous";
+
+  socket.on('submitUsername', userData => {
+    socket.username = userData.username;
+    users.push({username: userData.username});
+    io.sockets.emit('userList', {users: users, sockets: socketIds});
+  });
+
+  socket.on('newMessage', messageData => {
+    io.sockets.emit('newMessage', {message: messageData.message, username: socket.username});
+  });
+
+  socket.on('typing', data => {
+    socket.broadcast.emit('typing', {username: socket.username});
+  });
+});
+
 // Find 404 and hand over to error handler
 app.use((request, response, next) => {
   next(createError(404));
