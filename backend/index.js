@@ -34,7 +34,7 @@ app.listen(portNum, () => {
   console.log("listening on port " + portNum);
 });
 
-const io = require('socket.io')(server);
+/*const io = require('socket.io')(server);
 
 // Handle socket traffic
 io.sockets.on('connection', (socket) => {
@@ -57,7 +57,7 @@ io.sockets.on('connection', (socket) => {
   socket.on('typing', data => {
     socket.broadcast.emit('typing', {username: socket.username});
   });
-});
+});*/
 
 // Find 404 and hand over to error handler
 app.use((request, response, next) => {

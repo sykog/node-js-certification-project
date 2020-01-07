@@ -1,0 +1,9 @@
+<div class="weather">
+  <form [formGroup]="weatherForm" (ngSubmit)="submitWeatherForm(weatherForm.value)">
+    <span class="error" *ngIf="errorMessage">{{errorMessage}}</span>
+    <input class="form-control" id="zip" type="text" formControlName="zip" placeholder="Zip Code">
+
+    <button type="submit">Search Weather</button>
+  </form>
+
+</div>
