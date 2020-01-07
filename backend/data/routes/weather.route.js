@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const axios = require('axios').default;
 const weatherRoute = express.Router();
-const axios = require('axios').default;
 
 // get the weather from weather api
 weatherRoute.route('/search-weather').post((request, response, next) => {
