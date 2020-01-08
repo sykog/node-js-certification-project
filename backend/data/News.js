@@ -3,16 +3,22 @@ const Schema = mongoose.Schema;
 
 let News = new Schema({
   title: {
-    type: String
+    type: String,
+    required: true,
   },
   description: {
     type: String
   },
-  publish_date: {
-    type: Date, default: Date.now()
+  Url: {
+      type: String
   },
-}, {
-  collection: 'news'
+  UrlToImage: {
+      type: String
+  },
+  publish_date: {
+    type: Date, 
+    default: Date.now()
+  }
 });
 
 module.exports = mongoose.model('News', News);
