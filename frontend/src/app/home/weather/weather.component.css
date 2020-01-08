@@ -1,0 +1,39 @@
+div.weather {
+  width: 80%;
+  max-width: 450px;
+  margin: 10px auto;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.weather h3 {
+  text-align: center;
+}
+
+div.weather form {
+  width: 100%;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.weather form input {
+  margin-right: 10px;
+}
+
+div.weather img {
+  margin: -10px 0;
+}
+
+@media(max-width: 400px) {
+  div.weather form {
+    flex-flow: column;
+  }
+
+  div.weather form input {
+    margin-bottom: 6px;
+  }
+}
