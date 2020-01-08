@@ -14,7 +14,8 @@ export class WeatherService {
 
   getWeatherByZip(zip): Observable<any> {
     const url : string = 'http://localhost:6500/api/search-weather';
-    return this.http.post(url, zip).pipe(catchError(this.manageError));
+    console.log(zip);
+    return this.http.post(url, {zip: zip}).pipe(catchError(this.manageError));
   }
 
   private manageError(error: HttpErrorResponse) {

@@ -13,26 +13,32 @@ export class WeatherComponent implements OnInit {
   weatherForm;
   getSubcription: Subscription;
   errorMessage: string;
+  weatherData: object = {city: '', temperature: '', icon: '', description: '', humidity: ''};
 
   constructor(private formBuilder: FormBuilder, private weatherService: WeatherService) {
     this.weatherForm = this.formBuilder.group({
-      zip: ['', [Validators.required]]
+      zip: ['', [Validators.required, Validators.pattern('^\\d{5}$')]]
     });
   }
 
   ngOnInit() {
+    this.getSubcription = this.weatherService.getWeatherByZip('08820').subscribe(weatherData => {
+      this.weatherData = weatherData;
+    });
   }
 
   ngOnDestroy() {
     this.getSubcription.unsubscribe();
   }
 
-  submitWeatherForm(weatherData) {
+  submitWeatherForm(zipData) {
     if (this.weatherForm.valid) {
-      console.log(weatherData);
-      this.getSubcription = this.weatherService.getWeatherByZip(weatherData.zip).subscribe(weather => {
-        console.log(weather)
+      this.getSubcription = this.weatherService.getWeatherByZip(zipData.zip).subscribe(weatherData => {
+        this.weatherData = weatherData;
+        this.errorMessage = null;
       });
+    } else {
+      this.errorMessage = "Invalid Zip Code";
     }
   }
 }
