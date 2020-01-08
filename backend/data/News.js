@@ -20,3 +20,5 @@ let News = new Schema({
     default: Date.now()
   }
 });
+
+module.exports = mongoose.model('News', News);

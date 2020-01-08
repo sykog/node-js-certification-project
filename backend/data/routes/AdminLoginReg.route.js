@@ -16,7 +16,6 @@ adminRoute.route('/register-admin').post((request, response) => {
     }, (error, data) => {
         if (error) res.status(500).json("There was a problem registering the user.");
 
-        response.json(data)
         let token = jwt.sign({ id: data._id }, config.secret, {
             expiresIn: 86400 // expires in 24 hours
         });

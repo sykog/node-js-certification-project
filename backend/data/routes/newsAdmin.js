@@ -1,14 +1,15 @@
 const express = require('express')
 const router = express.Router();
-const News = require('../News')
+const News = require('../News');
+const validator = require('../validator');
 
-router.post('/',async (req,res) => {
+router.post('/', validator.authenticate, async (req,res) => {
     console.log("here")
     const { title, description, Url, UrlToImage} = req.body;
     console.log(Url)
     console.log(UrlToImage)
     try {
-
+        console.log(title)
         let news = await News.findOne({title})
         if(news){
             return res.status(401).json('News already exists')
@@ -31,7 +32,7 @@ router.post('/',async (req,res) => {
     }
 })
 
-router.get('/',async(req,res) => {
+router.get('/',validator.authenticate, async(req,res) => {
     try {
         const news = await News.find()
         res.json(news);
@@ -41,7 +42,7 @@ router.get('/',async(req,res) => {
     }
 })
 
-router.put('/:id',async(req,res) => {
+router.put('/:id',validator.authenticate, async(req,res) => {
     try {
         const { title,description,Url,UrlToImage } = req.body;
         let news = await News.findOne({_id:req.params.id})
@@ -62,7 +63,7 @@ router.put('/:id',async(req,res) => {
     }
 })
 
-router.delete('/:id',async(req,res) => {
+router.delete('/:id',validator.authenticate, async(req,res) => {
     try {
        const news = await News.findOneAndDelete({_id:req.params.id})
        if(!news){
