@@ -2,6 +2,7 @@ const express = require("express");
 const createError = require('http-errors');
 const bodyParser = require("body-parser");
 const axios = require("axios").default;
+const http = require('http');
 const fs = require("fs");
 const path = require("path");
 const mongoose = require('mongoose');
@@ -30,11 +31,11 @@ app.use(cors());
 app.use('/', express.static(__dirname));
 app.use('/api', [newsRoute, weatherRoute,adminRoute]);
 
-app.listen(portNum, () => {
+const server = http.createServer(app).listen(portNum, () => {
   console.log("listening on port " + portNum);
 });
 
-/*const io = require('socket.io')(server);
+const io = require('socket.io')(server);
 
 // Handle socket traffic
 io.sockets.on('connection', (socket) => {
@@ -51,13 +52,13 @@ io.sockets.on('connection', (socket) => {
   });
 
   socket.on('newMessage', messageData => {
-    io.sockets.emit('newMessage', {message: messageData.message, username: socket.username});
+    io.sockets.emit('newMessage', messageData);
   });
 
   socket.on('typing', data => {
     socket.broadcast.emit('typing', {username: socket.username});
   });
-});*/
+});
 
 // Find 404 and hand over to error handler
 app.use((request, response, next) => {
