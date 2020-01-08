@@ -10,8 +10,15 @@ import { LoginComponent } from './Admin/login/login.component';
 import { SignupComponent } from './Admin/signup/signup.component';
 import { HeaderComponent } from 'src/app/components/shared/header/header.component'
 import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
+
+import { NewsComponent } from './Admin/news/news.component'
+import {ButtonModule} from 'primeng/button';
+import {CardModule} from 'primeng/card';
+import {InputTextModule} from 'primeng/inputtext';
+
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
-import { NewsComponent } from './components/news/news.component';
+
+
 
 
 @NgModule({
@@ -31,7 +38,10 @@ import { NewsComponent } from './components/news/news.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    CardModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
