@@ -45,14 +45,14 @@ io.sockets.on('connection', (socket) => {
   console.log("New user connected");
   socket.username = "Anonymous";
 
-  socket.on('submitUsername', userData => {
-    socket.username = userData.username;
-    users.push({username: userData.username});
+  socket.on('submitUsername', username => {
+    socket.username = username;
+    users.push({username: username});
     io.sockets.emit('userList', {users: users, sockets: socketIds});
   });
 
   socket.on('newMessage', messageData => {
-    io.sockets.emit('newMessage', messageData);
+    io.sockets.emit('newMessage', {username: socket.username, message: messageData});
   });
 
   socket.on('typing', data => {

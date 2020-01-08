@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChatService} from "../../services/chat.service";
 import {Subscription} from "rxjs";
 
@@ -9,29 +9,56 @@ import {Subscription} from "rxjs";
 })
 export class ChatboxComponent implements OnInit {
 
-  message : string;
-  messages : string[] = [];
-  subscription: Subscription;
+  message: string;
+  messages: object[] = [];
+  username: string;
+  userCount: number;
+  broadcast: string;
+  messageSubscription: Subscription;
+  userSubscription: Subscription;
+  typingSubscription: Subscription;
 
-  constructor(private chatService: ChatService) { }
+  constructor(private chatService: ChatService) {
+  }
 
   ngOnInit() {
-    this.subscription = this.chatService.getMessages()
-      .subscribe( (message: string) => {
-        console.log(message);
-        this.messages.push(message);
+    this.messageSubscription = this.chatService.getMessages()
+      .subscribe((messageData) => {
+        this.messages.push({username: messageData.username, message: messageData.message});
+        this.broadcast = '';
+      });
+
+    this.userSubscription = this.chatService.getConnectedUsersCount()
+      .subscribe((userCount) => {
+        this.userCount = userCount;
+      });
+
+    this.typingSubscription = this.chatService.getWhoIsTyping().subscribe(data => {
+      this.broadcast = data;
     });
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.messageSubscription.unsubscribe();
+    this.userSubscription.unsubscribe();
+    this.typingSubscription.unsubscribe();
+  }
+
+  showUserIsTyping() {
+    this.chatService.showUserIsTyping();
+  }
+
+  sendUsername() {
+    if (this.username) {
+      this.chatService.sendUsername(this.username);
+      this.username = '';
+    }
   }
 
   sendMessage() {
-    if (this.message.length > 0) {
+    if (this.message) {
       this.chatService.sendMessage(this.message);
+      this.message = '';
     }
-    this.message = '';
   }
-
 }

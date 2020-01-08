@@ -14,14 +14,38 @@ export class ChatService {
     this.socket = io(this.url);
   }
 
+  public sendUsername(username) {
+    this.socket.emit('submitUsername', username);
+  }
+
   public sendMessage(message) {
     this.socket.emit('newMessage', message);
   }
 
+  public showUserIsTyping() {
+    this.socket.emit("typing");
+  }
+
+  public getConnectedUsersCount() : Observable<any> {
+    return new Observable((observer: Observer<any>) => {
+      this.socket.on('userList', (data) => {
+        observer.next(data.sockets.length);
+      });
+    });
+  }
+
   public getMessages() : Observable<any> {
     return new Observable((observer: Observer<any>) => {
-      this.socket.on('newMessage', (message) => {
+      this.socket.on('newMessage', (message: object) => {
         observer.next(message);
+      });
+    });
+  }
+
+  public getWhoIsTyping(): Observable<any> {
+    return new Observable((observer: Observer<any>) => {
+      this.socket.on('typing', (data) => {
+        observer.next(data.username + " is typing...");
       });
     });
   }

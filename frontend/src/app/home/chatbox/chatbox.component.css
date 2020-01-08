@@ -3,4 +3,7 @@ div.chatbox {
   width: 90%;
   max-width: 1000px;
   margin: 10px auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
 }
