@@ -16,6 +16,8 @@ import { HeaderComponent } from 'src/app/components/shared/header/header.compone
 import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
 import { NewsComponent } from './Admin/news/news.component'
 import {ButtonModule} from 'primeng/button';
+import {CardModule} from 'primeng/card';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    CardModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

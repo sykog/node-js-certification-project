@@ -9,16 +9,31 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
 
   signupForm;
+  danger;
+  Epassword;
 
   constructor(private formBuilder: FormBuilder) { 
     this.signupForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
       username: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      confirm: ''
+    },{
+      validators: (form) =>{
+        if(form.get('password').value !== form.get('confirm').value){
+          form.get('confirm').setErrors({passwordMatch: true});
+        } else {
+          form.get('confirm').setErrors(null);
+        }
+        return null;
+      }
     });
   }
   ngOnInit() {
   }
+
+ 
+  
 
 }
