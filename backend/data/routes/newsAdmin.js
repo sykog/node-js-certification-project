@@ -4,12 +4,8 @@ const News = require('../News');
 const validator = require('../validator');
 
 router.post('/', validator.authenticate, async (req,res) => {
-    console.log("here")
     const { title, description, Url, UrlToImage} = req.body;
-    console.log(Url)
-    console.log(UrlToImage)
     try {
-        console.log(title)
         let news = await News.findOne({title})
         if(news){
             return res.status(401).json('News already exists')
@@ -23,7 +19,6 @@ router.post('/', validator.authenticate, async (req,res) => {
         })
 
         await news.save()
-        console.log(news)
         res.json(news)
 
     } catch(err){
