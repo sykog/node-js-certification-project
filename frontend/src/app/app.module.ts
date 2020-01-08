@@ -11,12 +11,14 @@ import { SignupComponent } from './Admin/signup/signup.component';
 import { HeaderComponent } from 'src/app/components/shared/header/header.component'
 import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
 
-import { NewsComponent } from './Admin/news/news.component'
+
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
+import { NewsComponent } from './components/news/news.component';
+import { AddNewsComponent } from './Admin/add-news/add-news.component';
 
 
 
@@ -31,7 +33,8 @@ import { ImageSliderComponent } from './components/image-slider/image-slider.com
     HeaderComponent,
     FooterComponent,
     ImageSliderComponent,
-    NewsComponent
+    NewsComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  selector: 'app-add-news',
+  templateUrl: './add-news.component.html',
+  styleUrls: ['./add-news.component.css']
 })
-export class NewsComponent implements OnInit {
+export class AddNewsComponent implements OnInit {
 
   addNewsForm;;
 
