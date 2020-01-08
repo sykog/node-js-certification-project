@@ -13,7 +13,8 @@ import { LoginComponent } from './Admin/login/login.component';
 import { SignupComponent } from './Admin/signup/signup.component';
 
 import { HeaderComponent } from 'src/app/components/shared/header/header.component'
-import { FooterComponent } from 'src/app/components/shared/footer/footer.component'
+import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
+import { ImageSliderComponent } from './components/image-slider/image-slider.component'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FooterComponent } from 'src/app/components/shared/footer/footer.compone
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,
