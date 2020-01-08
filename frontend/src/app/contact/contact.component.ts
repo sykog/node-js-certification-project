@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
   submitContactForm(contactData) {
     console.log(this.contactForm);
     if (this.contactForm.valid) {
-      this.submitText = "We appreciate your feedback!"
+      this.submitText = "We appreciate your feedback!";
       this.contactForm.reset();
     }
   }
