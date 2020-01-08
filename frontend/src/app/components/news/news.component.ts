@@ -10,6 +10,19 @@ export class NewsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  firstNews(){
+
+  }
+
+  secondNews(){
+
+  }
+
+  thirdNews(){
+    
   }
 
 }
