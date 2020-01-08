@@ -13,7 +13,8 @@ const portNum = 6500;
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(config.dbUrl, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 }).then(() => console.log('Database connected sucessfully '),
   error => console.log('Could not connected to database : ' + error)
 );
@@ -22,6 +23,8 @@ const app = express();
 const newsRoute = require('./data/routes/news.route');
 const weatherRoute = require('./data/routes/weather.route');
 const adminRoute = require('./data/routes/AdminLoginReg.route');
+const newsAdmin = require('./data/routes/newsAdmin');
+const sportsRoute = require('./data/routes/sports.route');
 
 //app.use(session({secret: 'edurekaSecert'}));
 app.use(bodyParser.json());
@@ -29,7 +32,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
 app.use('/', express.static(__dirname));
-app.use('/api', [newsRoute, weatherRoute,adminRoute]);
+app.use('/api', [newsRoute, weatherRoute, adminRoute, newsAdmin, sportsRoute]);
 
 const server = http.createServer(app).listen(portNum, () => {
   console.log("listening on port " + portNum);
@@ -60,15 +63,3 @@ io.sockets.on('connection', (socket) => {
   });
 });
 
-// Find 404 and hand over to error handler
-app.use((request, response, next) => {
-  next(createError(404));
-});
-
-// error handler
-app.use( (error, request, response, next) => {
-  console.error(error.message);
-
-  if (!error.statusCode) error.statusCode = 500;
-  response.status(error.statusCode).send(error.message);
-});
