@@ -13,8 +13,9 @@ import { LoginComponent } from './Admin/login/login.component';
 import { SignupComponent } from './Admin/signup/signup.component';
 
 import { HeaderComponent } from 'src/app/components/shared/header/header.component'
-import { FooterComponent } from 'src/app/components/shared/footer/footer.component'
-
+import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
+import { NewsComponent } from './Admin/news/news.component'
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,16 @@ import { FooterComponent } from 'src/app/components/shared/footer/footer.compone
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
