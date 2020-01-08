@@ -1,0 +1,19 @@
+<h3>Add News</h3>
+<div>
+    <form [formGroup]="addNewsForm">
+        <h6>Title</h6>
+        <input class="form-control" id="title" type="text" formControlName="title" >
+        <h6>Description</h6>
+        <input class="form-control" id="description" type="text" formControlName="description" >
+        <h6>Url</h6>
+        <input class="form-control" id="url" type="text" formControlName="url" >
+        <h6>Url To Image</h6>
+        <input class="form-control" id="urlToImage" type="text" formControlName="urlToImage" >
+        <h6>Published At</h6>
+        <input class="form-control" id="publishedAt" type="text" formControlName="publishedAt">
+    </form>
+<div>
+<div style="text-align: center;">
+    <button >Add</button> 
+    <button style = "margin-left: 10px;" >Reset</button>
+</div>

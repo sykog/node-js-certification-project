@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {WeatherService} from "../../services/weather.service";
+import {WeatherService} from "../../../services/weather.service";
 import {Subscription} from "rxjs";
 
 @Component({
