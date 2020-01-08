@@ -22,7 +22,8 @@ const app = express();
 const newsRoute = require('./data/routes/news.route');
 const weatherRoute = require('./data/routes/weather.route');
 const adminRoute = require('./data/routes/AdminLoginReg.route');
-const newsAdmin = require('./data/routes/newsAdmin')
+const newsAdmin = require('./data/routes/newsAdmin');
+const sportsRoute = require('./data/routes/sports.route');
 
 //app.use(session({secret: 'edurekaSecert'}));
 app.use(bodyParser.json());
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
 app.use('/', express.static(__dirname));
-app.use('/api', [newsRoute, weatherRoute, adminRoute, newsAdmin]);
+app.use('/api', [newsRoute, weatherRoute, adminRoute, newsAdmin, sportsRoute]);
 
 app.listen(portNum, () => {
   console.log("listening on port " + portNum);
