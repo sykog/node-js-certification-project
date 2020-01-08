@@ -19,10 +19,9 @@ let Admin = new Schema({
 
 Admin.statics.verifyToken = function(token){
   try{
-      console.log(token)
       const payload = jwt.verify(token,'abcd1234')
       console.log(payload)
-      return payload
+      return payload;
   } catch(e){
       return null;
   }
