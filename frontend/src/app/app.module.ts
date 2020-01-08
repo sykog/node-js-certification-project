@@ -8,7 +8,8 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home/home.component';
 import { WeatherComponent } from './home/weather/weather.component';
 import { HeaderComponent } from 'src/app/components/shared/header/header.component'
-import { FooterComponent } from 'src/app/components/shared/footer/footer.component'
+import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
+import { ImageSliderComponent } from './components/image-slider/image-slider.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from 'src/app/components/shared/footer/footer.compone
     HomeComponent,
     WeatherComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,
