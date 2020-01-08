@@ -3,13 +3,11 @@
     <span class="error" *ngIf="errorMessage">{{errorMessage}}</span>
     <input class="form-control" id="zip" type="text" formControlName="zip" placeholder="Zip Code">
 
-    <button type="submit">Search Weather</button>
+    <button type="submit">Search</button>
   </form>
 
   <h3>Today's weather in {{weatherData.city}}</h3>
   <img src="{{weatherData.icon}}" alt="{{weatherData.description}}">
   <h3>{{weatherData.tempurature}} &deg; F</h3>
   <h3>{{weatherData.humidity}} % humidity</h3>
-
-  
 </div>

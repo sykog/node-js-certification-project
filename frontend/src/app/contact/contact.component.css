@@ -1,0 +1,22 @@
+form {
+  padding: 20px 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 10px auto;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+form input, form textarea {
+  margin: 5px 0;
+}
+
+form label {
+  font-weight: bold;
+}
+
+span.error {
+  color: red;
+}

@@ -16,7 +16,8 @@ import { SignupComponent } from './Admin/signup/signup.component';
 import { HeaderComponent } from 'src/app/components/shared/header/header.component'
 import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
 import { AboutComponent } from './about/about/about.component';
-import { MapComponent } from './about/map/map.component'
+import { MapComponent } from './about/map/map.component';
+import { ContactComponent } from './contact/contact.component'
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MapComponent } from './about/map/map.component'
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    MapComponent
+    MapComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
