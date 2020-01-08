@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #abbfca;
+}
+
+header#mainHeader {
+  width: 100%;
+  background: #CDBCEE;
+  background: linear-gradient(135deg, #CDBCEE 0%, #2893e0 100%);
+  z-index: 10;
+  border-bottom: 3px solid #0070b1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header#mainHeader h2 {
+  width: max-content;
+  margin: 10px auto;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+h2 {
+  width: max-content;
+}
+
+button, input[type="submit"] {
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #ededed 2%, #8c8c8c 49%, #575757 51%, #8c8c8c 100%);
+  border-radius: 12px;
+  border: 2px solid #0070b1;
+  padding: 6px 20px;
+  color: #fff;
+  font-size: 16px;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4)
+}
+
+button:hover, input[type="submit"]:hover {
+  background: linear-gradient(180deg, #8dcbeb 2%, #2893e0 49%, #206080 51%, #2893e0 100%);
+}
