@@ -1,19 +1,20 @@
 
 <div class="chatbox">
   <div class="username">
-    <input [(ngModel)]="username"/>
     <button (click)="sendUsername()">Submit Username</button>
-    <p>Connected Users: {{userCount}}</p>
-    {{broadcast}}
+    <input [(ngModel)]="username"/>
+    <h4 class="user-count">{{userCount == 1 ? userCount + " User Connected": userCount + " Users Connected"}}</h4>
   </div>
 
-  <div *ngFor="let message of messages" class="messages">
-    <p><strong>{{message.username}}: </strong>{{message.message}}</p>
+  <p class="broadcast">{{broadcast ? broadcast : ""}}</p>
+
+  <div class="messages">
+    <p *ngFor="let message of messages"><strong>{{message.username}}: </strong>{{message.message}}</p>
   </div>
 
   <div class="send-message">
+    <button (click)="sendMessage()">Send</button>
     <input [(ngModel)]="message" (keypress)="showUserIsTyping()" />
-    <button (click)="sendMessage()">Send Message</button>
   </div>
 
 </div>

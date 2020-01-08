@@ -1,9 +1,74 @@
 div.chatbox {
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, .5);
   width: 90%;
   max-width: 1000px;
   margin: 10px auto;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+}
+
+div.chatbox * {
+  box-sizing: border-box;
+}
+
+div.chatbox input {
+  margin-left: 6px;
+}
+
+div.chatbox div {
+  padding: 4px;
+}
+
+div.chatbox div.username .user-count {
+  float: right;
+}
+
+div.chatbox div.messages {
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  resize: vertical;
+  margin: 0;
+}
+
+div.chatbox div.messages p {
+  margin: 0;
+  padding: 4px 0;
+}
+
+div.chatbox div.messages p:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+div.chatbox .broadcast {
+  height: 30px;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+div.chatbox div.send-message button {
+  width: 80px;
+}
+
+div.chatbox div.send-message input {
+  width: calc(100% - 90px);
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 8px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, 0.2);
 }

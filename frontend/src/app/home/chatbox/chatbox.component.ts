@@ -12,7 +12,7 @@ export class ChatboxComponent implements OnInit {
   message: string;
   messages: object[] = [];
   username: string;
-  userCount: number;
+  userCount: number = 0;
   broadcast: string;
   messageSubscription: Subscription;
   userSubscription: Subscription;
