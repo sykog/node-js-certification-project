@@ -16,11 +16,18 @@ div.weather h3 {
 div.weather form {
   width: 100%;
   padding: 6px;
-  display: flex;
-  justify-content: space-between;
+}
+
+div.weather form * {
+  box-sizing: border-box;
+}
+
+div.weather form button {
+  width: 100px;
 }
 
 div.weather form input {
+  width: calc(100% - 112px);
   margin-right: 10px;
 }
 
@@ -30,10 +37,12 @@ div.weather img {
 
 @media(max-width: 400px) {
   div.weather form {
+    display: flex;
     flex-flow: column;
   }
 
   div.weather form input {
+    width: 100%;
     margin-bottom: 6px;
   }
 }

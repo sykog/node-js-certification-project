@@ -5,11 +5,11 @@
 
     <span class="error" *ngIf="handleError('email', 'required')">Email is required</span>
     <span class="error" *ngIf="handleError('email', 'email')">Invalid email</span>
-    <label for="email">Email</label>
+    <h6>Email</h6>
     <input class="form-control" id="email" type="text" formControlName="email">
 
     <span class="error" *ngIf="handleError('feedback', 'required')">Feedback is required</span>
-    <label for="feedback">Feedback</label>
+    <h6>Feedback</h6>
     <textarea class="form-control" id="feedback" type="text" formControlName="feedback" rows="4"></textarea>
 
     <button type="submit">Submit</button>

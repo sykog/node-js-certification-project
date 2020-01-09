@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+
+nav {
+  background-color: #a00029;
+}
+
+nav a {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: bold;
+  color: #ffe77b !important;
+  padding: 5px 12px !important;
+}
+
+nav a:hover {
+  color: #ffecb2 !important;
+  text-shadow: 0 0 5px rgba(0,0,0, 0.8);
+}

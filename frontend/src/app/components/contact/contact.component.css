@@ -10,7 +10,7 @@ form {
 }
 
 form input, form textarea {
-  margin: 5px 0;
+  margin-bottom: 10px;
 }
 
 form label {

@@ -1,46 +1,42 @@
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <div class="card" style="width: 22rem; margin-top: 10px;">
-            <div class="card-body">
-                <h3>Register Page</h3>
-                <form [formGroup]="signupForm">
-                    <div class="form-group">
-                        <h6>User Name</h6>
-                        <input class="form-control"
-                            [ngClass]="{'is-invalid': signupForm.get('name').touched && signupForm.get('name').invalid}"
-                            id="name" type="text" formControlName="name" style="width: 300px; ">
-                        <span class="invalid-feedback">Name Cannot Be Blank</span>
-                    </div>
-                    <div class="form-group">
-                        <h6>Full Name</h6>
-                        <input class="form-control"
-                            [ngClass]="{'is-invalid': signupForm.get('username').touched && signupForm.get('username').invalid}"
-                            id="username" type="text" formControlName="username" style="width: 300px;">
-                        <span class="invalid-feedback">Username Cannot Be Blank</span>
-                    </div>
-                    <div class="form-group">
-                        <h6>Email</h6>
-                        <input class="form-control"
-                            [ngClass]="{'is-invalid': signupForm.get('email').touched && signupForm.get('email').invalid}"
-                            id="email" type="email" formControlName="email" style="width: 300px; ">
-                        <span class="invalid-feedback">Email Cannot Be Blank</span>
-                    </div>
-                    <div class="form-group">
-                        <h6>Password</h6>
-                        <input class="form-control"
-                            [ngClass]="{'is-invalid': signupForm.get('password').touched && signupForm.get('password').invalid}"
-                            id="password" type="password" formControlName="password" style="width: 300px; " >
-                        <span class="invalid-feedback">Password Cannot Be Blank</span>
-                    </div>
-                    <h6>Confirm Password</h6>
-                    <div class="form-group">
-                        <input class="form-control" [ngClass]="{'is-invalid': signupForm.get('confirm').touched && signupForm.get('confirm').invalid}" id="confirm" type="password" formControlName="confirm"
-                            style="width: 300px; ">
-                        <span class="invalid-feedback" >Password Does Not Match</span>
-                    </div>
-                    <button type="submit" style="margin-top: 10px;">Sign In</button>
-                </form>
-            </div>
-        </div>
+<div class="register">
+  <h3>Register Page</h3>
+  <form [formGroup]="signupForm">
+    <div class="form-group">
+      <h6>User Name</h6>
+      <input class="form-control"
+             [ngClass]="{'is-invalid': signupForm.get('name').touched && signupForm.get('name').invalid}"
+             id="name" type="text" formControlName="name" style="width: 300px; ">
+      <span class="invalid-feedback">Name Cannot Be Blank</span>
     </div>
+    <div class="form-group">
+      <h6>Full Name</h6>
+      <input class="form-control"
+             [ngClass]="{'is-invalid': signupForm.get('username').touched && signupForm.get('username').invalid}"
+             id="username" type="text" formControlName="username" style="width: 300px;">
+      <span class="invalid-feedback">Username Cannot Be Blank</span>
+    </div>
+    <div class="form-group">
+      <h6>Email</h6>
+      <input class="form-control"
+             [ngClass]="{'is-invalid': signupForm.get('email').touched && signupForm.get('email').invalid}"
+             id="email" type="email" formControlName="email" style="width: 300px; ">
+      <span class="invalid-feedback">Email Cannot Be Blank</span>
+    </div>
+    <div class="form-group">
+      <h6>Password</h6>
+      <input class="form-control"
+             [ngClass]="{'is-invalid': signupForm.get('password').touched && signupForm.get('password').invalid}"
+             id="password" type="password" formControlName="password" style="width: 300px; ">
+      <span class="invalid-feedback">Password Cannot Be Blank</span>
+    </div>
+    <h6>Confirm Password</h6>
+    <div class="form-group">
+      <input class="form-control"
+             [ngClass]="{'is-invalid': signupForm.get('confirm').touched && signupForm.get('confirm').invalid}"
+             id="confirm" type="password" formControlName="confirm"
+             style="width: 300px; ">
+      <span class="invalid-feedback">Password Does Not Match</span>
+    </div>
+    <button type="submit" style="margin-top: 10px;">Sign In</button>
+  </form>
 </div>
