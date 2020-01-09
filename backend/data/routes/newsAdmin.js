@@ -26,7 +26,7 @@ router.post('/', validator.authenticate, async (req,res) => {
         res.status(500).json(err);
     }
 })
-
+// this is where it goes after next
 router.get('/',validator.authenticate, async(req,res) => {
     try {
         const news = await News.find()
