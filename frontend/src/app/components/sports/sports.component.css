@@ -1,0 +1,19 @@
+div.sports-header {
+  display: flex;
+  justify-content: center;
+}
+
+div.card {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px 10%;
+  border: none;
+  border-radius: 0;
+}
+
+div.card:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.car div.card-body {
+  background-color: transparent;
+}

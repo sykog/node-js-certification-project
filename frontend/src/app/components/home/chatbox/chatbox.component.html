@@ -1,9 +1,9 @@
-
+<h2 class="text-center">Chatbox</h2>
 <div class="chatbox">
   <div class="username">
     <button (click)="sendUsername()">Submit Username</button>
     <input [(ngModel)]="username"/>
-    <h4 class="user-count">{{userCount == 1 ? userCount + " User Connected": userCount + " Users Connected"}}</h4>
+    <h4 class="user-count">{{userCount == 1 ? userCount + " User Connected" : userCount + " Users Connected"}}</h4>
   </div>
 
   <p class="broadcast">{{broadcast ? broadcast : ""}}</p>
@@ -14,7 +14,6 @@
 
   <div class="send-message">
     <button (click)="sendMessage()">Send</button>
-    <input [(ngModel)]="message" (keypress)="showUserIsTyping()" />
+    <input [(ngModel)]="message" (keypress)="showUserIsTyping()"/>
   </div>
-
 </div>

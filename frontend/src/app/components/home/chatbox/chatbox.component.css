@@ -1,7 +1,7 @@
 div.chatbox {
   border: 2px solid rgba(0, 0, 0, .5);
   width: 90%;
-  max-width: 500px;
+  max-width: 1000px;
   margin: 10px auto;
   display: flex;
   flex-flow: column;
@@ -26,7 +26,7 @@ div.chatbox div.username .user-count {
 }
 
 div.chatbox div.messages {
-  height: 200px;
+  height: 350px;
   overflow-x: hidden;
   overflow-y: auto;
   resize: vertical;
@@ -71,4 +71,20 @@ div.chatbox div.send-message input {
 
 ::-webkit-scrollbar-corner {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width: 700px) {
+  div.chatbox div.username {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
+  div.username input {
+    margin: 4px 0;
+  }
+
+  div.username h4 {
+    text-align: center;
+  }
 }

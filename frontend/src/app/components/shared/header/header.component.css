@@ -15,3 +15,9 @@ nav a:hover {
   color: #ffecb2 !important;
   text-shadow: 0 0 5px rgba(0,0,0, 0.8);
 }
+
+.admin {
+  display: block;
+  position: absolute;
+  right: 0;
+}
