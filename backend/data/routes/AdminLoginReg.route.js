@@ -26,10 +26,13 @@ adminRoute.post('/register-admin', (request, response) => {
 })
 
 // Sign in
-adminRoute.route('/login-admin').post((request, response) => {
+adminRoute.post('/login-admin', (request, response) => {
     console.log(request.body)
     Admin.findOne({ email: request.body.email }, (err, data) => {
-        if (err) res.status(500).json('Error on the server.');
+        if(!data){
+            return response.status(500).json("no data found")
+        } 
+        if (err) return res.status(401).json("Please enter valid email and password or register.");
         const passwordIsValid = bcrypt.compareSync(request.body.password, data.password);
         if (!passwordIsValid) return response.status(401).json("Password is not valid");
         let token = jwt.sign({ id: data._id }, config.secret, {

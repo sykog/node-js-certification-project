@@ -8,13 +8,14 @@ import {AboutComponent} from "./components/about/about/about.component";
 import {ContactComponent} from "./components/contact/contact.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SportsComponent } from './components/sports/sports.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path:'login', component: LoginComponent},
   {path:'signup', component: SignupComponent},
-  {path:'addNews', component:AddNewsComponent},
+  {path:'addNews', component:AddNewsComponent, canActivate:[AuthGuard]},
   {path:'about-us', component: AboutComponent},
   {path:'contact-us', component: ContactComponent},
   {path: 'sports', component: SportsComponent},
