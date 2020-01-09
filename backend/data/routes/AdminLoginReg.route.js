@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken');
 const config = require('../../config');
 
 // Register admin
-adminRoute.route('/register-admin').post((request, response) => {
+adminRoute.post('/register-admin', (request, response) => {
+
     const hashedPassword = bcrypt.hashSync(request.body.password, 10);
     Admin.create({
         name: request.body.name,
@@ -26,6 +27,7 @@ adminRoute.route('/register-admin').post((request, response) => {
 
 // Sign in
 adminRoute.route('/login-admin').post((request, response) => {
+    console.log(request.body)
     Admin.findOne({ email: request.body.email }, (err, data) => {
         if (err) res.status(500).json('Error on the server.');
         const passwordIsValid = bcrypt.compareSync(request.body.password, data.password);

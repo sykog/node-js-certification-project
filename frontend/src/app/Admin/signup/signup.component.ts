@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,18 +13,20 @@ export class SignupComponent implements OnInit {
   signupForm;
   danger;
   Epassword;
+  Data: any = {};
+  token: any;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {
     this.signupForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       username: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirm: ''
-    },{
-      validators: (form) =>{
-        if(form.get('password').value !== form.get('confirm').value){
-          form.get('confirm').setErrors({passwordMatch: true});
+    }, {
+      validators: (form) => {
+        if (form.get('password').value !== form.get('confirm').value) {
+          form.get('confirm').setErrors({ passwordMatch: true });
         } else {
           form.get('confirm').setErrors(null);
         }
@@ -33,7 +37,24 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
- 
-  
+  register(username, email, password) {
+
+    this.Data.name = username.value;
+    this.Data.email = email.value;
+    this.Data.password = password.value;
+    // this should return the token
+    this.authService.signUp(this.Data).subscribe(res => {
+      console.log(res);
+      this.token = res;
+      if (this.Data.name !== '' && this.Data.email !== '' && this.Data.password !== '') {
+        this.router.navigate(['/login']);
+      }
+      //localStorage.setItem('token',this.token);
+    })
+  }
+
+
+
+
 
 }
