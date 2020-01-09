@@ -17,6 +17,8 @@ import {ChatboxComponent} from "./components/home/chatbox/chatbox.component";
 import {ContactComponent} from "./components/contact/contact.component";
 import {AboutComponent} from "./components/about/about/about.component";
 import {MapComponent} from "./components/about/map/map.component";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SportsComponent } from './components/sports/sports.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {MapComponent} from "./components/about/map/map.component";
     ChatboxComponent,
     ContactComponent,
     AboutComponent,
-    MapComponent
+    MapComponent,
+    PageNotFoundComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,
