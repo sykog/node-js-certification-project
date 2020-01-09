@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   admin: boolean = false;
-  constructor() { }
+  token;
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   handleClick(){
     this.admin = true
+    this.token = this.authService.getToken();
+    console.log(this.token)
   }
 
 }

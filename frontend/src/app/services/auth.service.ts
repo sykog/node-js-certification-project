@@ -28,5 +28,12 @@ export class AuthService {
       headers: headers
     })
   }
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+  }
   
 }

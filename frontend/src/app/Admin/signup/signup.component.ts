@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       username: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirm: ''
     }, {
@@ -53,8 +53,8 @@ export class SignupComponent implements OnInit {
     })
   }
 
-
-
-
+  handleError(controlname, errorname){
+    return this.signupForm.controls[controlname].hasError(errorname);
+  }
 
 }

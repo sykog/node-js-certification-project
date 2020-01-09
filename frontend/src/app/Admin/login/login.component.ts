@@ -29,13 +29,16 @@ export class LoginComponent implements OnInit {
     this.Data.email = email.value;
     this.Data.password = password.value;
     this.authService.login(this.Data).subscribe(res =>{
+
       console.log(res)
-      if(this.Data.email !== '' && this.Data.password !== ''){
-        localStorage.setItem('token',res);
-        this.router.navigate(['/addNews']);
-      }
-      //else this.message = "Please enter valid email and password or register."
-      
+      if(res){
+         localStorage.setItem('token',res);
+         this.router.navigate(['/addNews']);
+        }
+
+    },error => {
+      console.log(error)
+      this.message = "Please enter correct email and password"
     })
   }
 

@@ -16,7 +16,8 @@
                         <input class="form-control"
                             [ngClass]="{'is-invalid': signupForm.get('email').touched && signupForm.get('email').invalid}"
                             id="email" type="email" formControlName="email" style="width: 300px; "#email>
-                        <span class="invalid-feedback">Email Cannot Be Blank</span>
+                        <span *ngIf="handleError('email','required')"  class="invalid-feedback">Email Cannot Be Blank</span>
+                        <span *ngIf="handleError('email','email')"  class="invalid-feedback">Invalid Email</span>
                     </div>
                     <div class="form-group">
                         <h6>Password</h6>
