@@ -10,7 +10,7 @@ export class NewsComponent implements OnInit {
 
   title:String
   description:String
-  Url: String
+  url: String
 
   constructor(private newsService: NewsService) { }
 
@@ -20,9 +20,10 @@ export class NewsComponent implements OnInit {
 
   firstNews(){
     this.newsService.getNews().subscribe(res => {
+      console.log(res);
       this.title = res[0].title
       this.description = res[0].description
-      this.Url = res[0].Url
+      this.url = res[0].url
     })
   }
 
@@ -30,7 +31,7 @@ export class NewsComponent implements OnInit {
     this.newsService.getNews().subscribe(res => {
       this.title = res[1].title
       this.description = res[1].description
-      this.Url = res[1].Url
+      this.url = res[1].url
     })
   }
 
@@ -38,7 +39,7 @@ export class NewsComponent implements OnInit {
     this.newsService.getNews().subscribe(res => {
       this.title = res[2].title
       this.description = res[2].description
-      this.Url = res[2].Url
+      this.url = res[2].url
     })
   }
 

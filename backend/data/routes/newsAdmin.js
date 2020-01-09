@@ -39,15 +39,15 @@ router.get('/get-news',/*validator.authenticate,*/ async(req,res) => {
 
 router.put('/update-news/:id',/*validator.authenticate,*/ async(req,res) => {
     try {
-        const { title,description,Url,UrlToImage } = req.body;
+        const { title,description,url,urlToImage } = req.body;
         let news = await News.findOne({_id:req.params.id})
         if(!news){
             return req.status(401).json('News does not exists')
         } else {
             news.title = title;
             news.description = description;
-            news.Url = Url;
-            news.UrlToImage = UrlToImage;
+            news.url = url;
+            news.urlToImage = urlToImage;
     
             await news.save()
             res.json(news)

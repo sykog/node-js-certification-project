@@ -15,9 +15,9 @@ export class ImageSliderComponent implements OnInit {
 
   ngOnInit() {
     this.newsService.getNews().subscribe(res => {
-      this.UrlToImage0 = res[0].UrlToImage
-      this.UrlToImage1 = res[1].UrlToImage
-      this.UrlToImage2 = res[2].UrlToImage
+      this.UrlToImage0 = res[0].urlToImage
+      this.UrlToImage1 = res[1].urlToImage
+      this.UrlToImage2 = res[2].urlToImage
     })
   }
 }

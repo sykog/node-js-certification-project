@@ -6,7 +6,7 @@ let News = require('../News');
 // Get Top 3 news
 newsRoute.get('/topthree',async (req,res) => {
   try{
-  let news = await News.find().sort({date: -1}).limit(3)
+  let news = await News.find().sort({publish_date: -1}).limit(3)
   res.json(news);
   } catch(err){
     console.error(err)
