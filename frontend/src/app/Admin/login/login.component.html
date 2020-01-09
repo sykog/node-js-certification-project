@@ -2,6 +2,7 @@
   <h3 style="margin-bottom: 10px;">Login Page</h3>
   <form [formGroup]="loginForm">
 
+    <h6 style="color:red">{{message}}</h6>
     <div class="form-group">
       <h6>Email</h6>
       <input class="form-control"
@@ -18,5 +19,6 @@
     </div>
 
     <button type="submit" (click)="login(email,password)" style="margin-bottom: 10px;">Sign In</button>
+
   </form>
 </div>

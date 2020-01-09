@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from 'src/app/services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -20,13 +20,13 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       username: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirm: ''
     }, {
       validators: (form) => {
         if (form.get('password').value !== form.get('confirm').value) {
-          form.get('confirm').setErrors({ passwordMatch: true });
+          form.get('confirm').setErrors({passwordMatch: true});
         } else {
           form.get('confirm').setErrors(null);
         }
@@ -34,6 +34,7 @@ export class SignupComponent implements OnInit {
       }
     });
   }
+
   ngOnInit() {
   }
 
@@ -53,8 +54,8 @@ export class SignupComponent implements OnInit {
     })
   }
 
-
-
-
+  handleError(controlname, errorname) {
+    return this.signupForm.controls[controlname].hasError(errorname);
+  }
 
 }
