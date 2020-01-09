@@ -18,6 +18,7 @@ import {ContactComponent} from "./components/contact/contact.component";
 import {AboutComponent} from "./components/about/about/about.component";
 import {MapComponent} from "./components/about/map/map.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SportsComponent } from './components/sports/sports.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ContactComponent,
     AboutComponent,
     MapComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,
