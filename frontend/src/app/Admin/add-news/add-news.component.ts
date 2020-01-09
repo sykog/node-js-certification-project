@@ -31,9 +31,10 @@ export class AddNewsComponent implements OnInit {
       this.newsService.addNews(newsData).subscribe((response) => {
         this.submitText = 'News article added';
         this.addNewsForm.reset();
+      }, error => {
+        console.log(error);
+        this.submitText = 'Title already exists'
       });
-
-      if (!this.submitText) this.submitText = "Title already exists";
     }
   }
 
