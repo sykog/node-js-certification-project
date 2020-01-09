@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  admin: boolean = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleClick(){
+    this.admin = true
   }
 
 }

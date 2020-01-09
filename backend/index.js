@@ -2,6 +2,7 @@ const express = require("express");
 const createError = require('http-errors');
 const bodyParser = require("body-parser");
 const axios = require("axios").default;
+const http = require('http');
 const fs = require("fs");
 const path = require("path");
 const mongoose = require('mongoose');
@@ -33,11 +34,11 @@ app.use(cors());
 app.use('/', express.static(__dirname));
 app.use('/api', [newsRoute, weatherRoute, adminRoute, newsAdmin, sportsRoute]);
 
-app.listen(portNum, () => {
+const server = http.createServer(app).listen(portNum, () => {
   console.log("listening on port " + portNum);
 });
 
-/*const io = require('socket.io')(server);
+const io = require('socket.io')(server);
 
 // Handle socket traffic
 io.sockets.on('connection', (socket) => {
@@ -47,18 +48,18 @@ io.sockets.on('connection', (socket) => {
   console.log("New user connected");
   socket.username = "Anonymous";
 
-  socket.on('submitUsername', userData => {
-    socket.username = userData.username;
-    users.push({username: userData.username});
+  socket.on('submitUsername', username => {
+    socket.username = username;
+    users.push({username: username});
     io.sockets.emit('userList', {users: users, sockets: socketIds});
   });
 
   socket.on('newMessage', messageData => {
-    io.sockets.emit('newMessage', {message: messageData.message, username: socket.username});
+    io.sockets.emit('newMessage', {username: socket.username, message: messageData});
   });
 
   socket.on('typing', data => {
     socket.broadcast.emit('typing', {username: socket.username});
   });
-});*/
+});
 

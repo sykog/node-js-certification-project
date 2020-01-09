@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="text-center">Contact Us</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="submitContactForm(contactForm.value)">
+    <h3 class="submitText" *ngIf="submitText">{{submitText}}</h3>
+
+    <span class="error" *ngIf="handleError('email', 'required')">Email is required</span>
+    <span class="error" *ngIf="handleError('email', 'email')">Invalid email</span>
+    <label for="email">Email</label>
+    <input class="form-control" id="email" type="text" formControlName="email">
+
+    <span class="error" *ngIf="handleError('feedback', 'required')">Feedback is required</span>
+    <label for="feedback">Feedback</label>
+    <textarea class="form-control" id="feedback" type="text" formControlName="feedback" rows="4"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
