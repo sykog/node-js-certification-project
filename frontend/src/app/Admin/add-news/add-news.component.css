@@ -18,3 +18,7 @@ div.add-news form input, div.add-news form textarea {
   margin-bottom: 10px;
   max-width: 600px;
 }
+
+.error {
+  color: red;
+}

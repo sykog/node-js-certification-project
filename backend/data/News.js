@@ -9,10 +9,10 @@ let News = new Schema({
   description: {
     type: String
   },
-  Url: {
+  url: {
       type: String
   },
-  UrlToImage: {
+  urlToImage: {
       type: String
   },
   publish_date: {

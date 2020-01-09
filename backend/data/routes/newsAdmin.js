@@ -3,8 +3,8 @@ const router = express.Router();
 const News = require('../News');
 const validator = require('../validator');
 
-router.post('/', validator.authenticate, async (req,res) => {
-    const { title, description, Url, UrlToImage} = req.body;
+router.post('/add-news', /*validator.authenticate,*/ async (req,res) => {
+    const { title, description, url, urlToImage} = req.body;
     try {
         let news = await News.findOne({title})
         if(news){
@@ -14,8 +14,8 @@ router.post('/', validator.authenticate, async (req,res) => {
         news = new News({
             title,
             description,
-            Url,
-            UrlToImage
+            url,
+            urlToImage
         })
 
         await news.save()
@@ -27,7 +27,7 @@ router.post('/', validator.authenticate, async (req,res) => {
     }
 })
 
-router.get('/',validator.authenticate, async(req,res) => {
+router.get('/get-news',/*validator.authenticate,*/ async(req,res) => {
     try {
         const news = await News.find()
         res.json(news);
@@ -37,7 +37,7 @@ router.get('/',validator.authenticate, async(req,res) => {
     }
 })
 
-router.put('/:id',validator.authenticate, async(req,res) => {
+router.put('/update-news/:id',/*validator.authenticate,*/ async(req,res) => {
     try {
         const { title,description,Url,UrlToImage } = req.body;
         let news = await News.findOne({_id:req.params.id})
@@ -58,7 +58,7 @@ router.put('/:id',validator.authenticate, async(req,res) => {
     }
 })
 
-router.delete('/:id',validator.authenticate, async(req,res) => {
+router.delete('/delete-news/:id',/*validator.authenticate,*/ async(req,res) => {
     try {
        const news = await News.findOneAndDelete({_id:req.params.id})
        if(!news){
