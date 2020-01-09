@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>News List</h2>
+
+  <table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+      <th scope="col" style="display: none">ID</th>
+      <th scope="col" style="max-width: 10%!important;">Title</th>
+      <th scope="col" style="width: 10%!important; min-width: 50% !important;">Description</th>
+      <th scope="col" style="max-width: 10%!important;">Url</th>
+      <th scope="col" style="max-width: 20%!important;">Image Url</th>
+      <th scope="col" style="max-width: 10%!important;">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let news of newsList">
+      <th scope="row" style="display: none">{{ news._id }}</th>
+      <td style="max-width: 10%!important;">{{news.title}}</td>
+      <td style="width: 50%!important; min-width: 50%!important;">{{news.description}}</td>
+      <td style="max-width: 10%!important;">{{news.url}}</td>
+      <td style="max-width: 20%!important;">{{news.urlToImage}}</td>
+      <td style="max-width: 10%!important;">
+        <button [routerLink]="['/edit-user/', news._id]">Edit</button>
+        <button (click)="deleteNews(news)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

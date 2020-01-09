@@ -23,6 +23,14 @@ export class NewsService {
     return this.http.post(apiUrl + "/add-news", news).pipe(catchError(this.manageError));
   }
 
+  deleteNews(id): Observable<any> {
+    return this.http.delete(apiUrl + "/delete-news/" + id).pipe(catchError(this.manageError));
+  }
+
+  getAllNews() : Observable<any> {
+    return this.http.get(apiUrl + "/get-news").pipe(catchError(this.manageError));
+  }
+
   private manageError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) errorMessage = error.error.message;

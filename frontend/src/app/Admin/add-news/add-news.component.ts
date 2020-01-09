@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {NewsService} from "../../services/news.service";
-import {error} from "util";
 
 @Component({
   selector: 'app-add-news',
