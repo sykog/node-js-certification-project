@@ -1,0 +1,36 @@
+div.carousel-item {
+  min-height: 500px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.carousel-item img {
+  display: block;
+  max-width: 1000px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media(max-width: 800px) {
+  div.carousel-item {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  div.carousel-item {
+    min-height: 300px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  div.carousel-item {
+    min-height: 200px;
+  }
+}
