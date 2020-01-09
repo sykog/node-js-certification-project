@@ -37,6 +37,21 @@ router.get('/get-news',/*validator.authenticate,*/ async(req,res) => {
     }
 })
 
+router.get('/get-news/:id',/*validator.authenticate,*/ async (req, res) => {
+  try {
+    let news = await News.findOne({_id: req.params.id})
+    if (!news) {
+      return req.status(401).json('News does not exists')
+    } else {
+      console.log(news);
+      res.json(news)
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+})
+
 router.put('/update-news/:id',/*validator.authenticate,*/ async(req,res) => {
     try {
         const { title,description,url,urlToImage } = req.body;

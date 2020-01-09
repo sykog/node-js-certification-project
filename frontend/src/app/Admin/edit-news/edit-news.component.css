@@ -1,0 +1,24 @@
+div.edit-news {
+  width: 95%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.edit-news form {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+}
+
+div.edit-news form input, div.edit-news form textarea {
+  margin-bottom: 10px;
+  max-width: 600px;
+}
+
+.error {
+  color: red;
+}

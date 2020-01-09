@@ -9,6 +9,7 @@ import {ContactComponent} from "./components/contact/contact.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SportsComponent } from './components/sports/sports.component';
 import {DisplayNewsComponent} from "./Admin/display-news/display-news.component";
+import {EditNewsComponent} from "./Admin/edit-news/edit-news.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'contact-us', component: ContactComponent},
   {path: 'sports', component: SportsComponent},
   {path: 'displayNews', component: DisplayNewsComponent},
+  {path: 'editNews/:id', component: EditNewsComponent},
   {path:'**',component: PageNotFoundComponent}
 ];
 

@@ -21,7 +21,7 @@
       <td style="max-width: 10%!important;">{{news.url}}</td>
       <td style="max-width: 20%!important;">{{news.urlToImage}}</td>
       <td style="max-width: 10%!important;">
-        <button [routerLink]="['/edit-user/', news._id]">Edit</button>
+        <button [routerLink]="['/editNews/', news._id]">Edit</button>
         <button (click)="deleteNews(news)">Delete</button>
       </td>
     </tr>

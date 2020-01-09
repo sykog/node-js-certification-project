@@ -20,6 +20,7 @@ import {MapComponent} from "./components/about/map/map.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SportsComponent } from './components/sports/sports.component';
 import { DisplayNewsComponent } from './Admin/display-news/display-news.component';
+import { EditNewsComponent } from './Admin/edit-news/edit-news.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DisplayNewsComponent } from './Admin/display-news/display-news.componen
     MapComponent,
     PageNotFoundComponent,
     SportsComponent,
-    DisplayNewsComponent
+    DisplayNewsComponent,
+    EditNewsComponent
   ],
   imports: [
     BrowserModule,

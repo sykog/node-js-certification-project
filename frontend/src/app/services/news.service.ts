@@ -27,6 +27,14 @@ export class NewsService {
     return this.http.delete(apiUrl + "/delete-news/" + id).pipe(catchError(this.manageError));
   }
 
+  getNewsById(id): Observable<any> {
+    return this.http.get(apiUrl + "/get-news/" + id).pipe(catchError(this.manageError));
+  }
+
+  updateNews(id, news): Observable<any> {
+    return this.http.put(apiUrl + "/update-news/" + id, news).pipe(catchError(this.manageError));
+  }
+
   getAllNews() : Observable<any> {
     return this.http.get(apiUrl + "/get-news").pipe(catchError(this.manageError));
   }
