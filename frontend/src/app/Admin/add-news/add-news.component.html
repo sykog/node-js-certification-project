@@ -1,20 +1,30 @@
-<h3>Add News</h3>
-<div>
-    <form [formGroup]="addNewsForm">
-        <h6>Title</h6>
-        <input class="form-control" id="title" type="text" formControlName="title" >
-        <h6>Description</h6>
-        <input class="form-control" id="description" type="text" formControlName="description" >
-        <h6>Url</h6>
-        <input class="form-control" id="url" type="text" formControlName="url" >
-        <h6>Url To Image</h6>
-        <input class="form-control" id="urlToImage" type="text" formControlName="urlToImage" >
-        <h6>Published At</h6>
-        <input class="form-control" id="publishedAt" type="text" formControlName="publishedAt">
-        <div style="text-align: center;">
-            <button >Add</button> 
-            <input type="reset" style = "margin-left: 10px;">
-        </div>
+<div class="add-news">
+    <form [formGroup]="addNewsForm" (ngSubmit)="submitNewsForm(addNewsForm.value)">
+      <h3>Add News</h3>
+      <h3 *ngIf="submitText">{{submitText}}</h3>
+  
+      <h6>Title</h6>
+      <span class="error" *ngIf="handleError('title', 'required')">Title is required</span>
+      <input class="form-control" id="title" type="text" formControlName="title">
+  
+      <h6>Description</h6>
+      <span class="error" *ngIf="handleError('description', 'required')">Description is required</span>
+      <textarea class="form-control" id="description" type="text" formControlName="description" rows="6"></textarea>
+  
+      <h6>Url</h6>
+      <span class="error" *ngIf="handleError('Url', 'required')">Url is required</span>
+      <span class="error" *ngIf="handleError('Url', 'pattern')">Not a valid url</span>
+      <input class="form-control" id="url" type="text" formControlName="Url">
+  
+      <h6>Url To Image</h6>
+      <span class="error" *ngIf="handleError('UrlToImage', 'required')">Image is required</span>
+      <span class="error" *ngIf="handleError('UrlToImage', 'pattern')">Not a valid url</span>
+      <input class="form-control" id="urlToImage" type="text" formControlName="UrlToImage">
+  
+      <div class="buttons text-center">
+        <button type="submit">Add</button>
+        <button (click)="resetNewsForm()" style="margin-left: 10px;">Reset</button>
+      </div>
     </form>
-<div>
+  </div>
 

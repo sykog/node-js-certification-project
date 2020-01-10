@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MsgService } from './msg.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  registeredHeader: boolean= false
+  constructor(private http: HttpClient, private msgService: MsgService) { }
 
   signUp(credentials:any): Observable<any>{
 
@@ -34,6 +36,7 @@ export class AuthService {
 
   logOut(){
     localStorage.removeItem('token');
+    this.msgService.setMsg();
   }
   
 }

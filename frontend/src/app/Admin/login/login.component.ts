@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { MsgService } from 'src/app/services/msg.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   message: String;
   
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private msgService: MsgService) { 
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -30,14 +31,13 @@ export class LoginComponent implements OnInit {
     this.Data.password = password.value;
     this.authService.login(this.Data).subscribe(res =>{
 
-      console.log(res)
       if(res){
          localStorage.setItem('token',res);
+         this.msgService.setMsg();
          this.router.navigate(['/addNews']);
         }
 
     },error => {
-      console.log(error)
       this.message = "Please enter correct email and password"
     })
   }
