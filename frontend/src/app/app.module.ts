@@ -19,6 +19,7 @@ import {AboutComponent} from "./components/about/about/about.component";
 import {MapComponent} from "./components/about/map/map.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SportsComponent } from './components/sports/sports.component';
+import { DisplayNewsComponent } from './Admin/display-news/display-news.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SportsComponent } from './components/sports/sports.component';
     AboutComponent,
     MapComponent,
     PageNotFoundComponent,
-    SportsComponent
+    SportsComponent,
+    DisplayNewsComponent
   ],
   imports: [
     BrowserModule,

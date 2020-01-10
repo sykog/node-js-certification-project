@@ -9,6 +9,7 @@ import {ContactComponent} from "./components/contact/contact.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SportsComponent } from './components/sports/sports.component';
 import { AuthGuard } from './guard/auth.guard';
+import { DisplayNewsComponent } from './Admin/display-news/display-news.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'about-us', component: AboutComponent},
   {path:'contact-us', component: ContactComponent},
   {path: 'sports', component: SportsComponent},
+  {path:'displayNews', component: DisplayNewsComponent, canActivate:[AuthGuard]},
   {path:'**',component: PageNotFoundComponent}
 ];
 
